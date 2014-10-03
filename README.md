@@ -5,7 +5,7 @@ Replace environment variable strings in your Twig variables!
 
 ## What's an environment variable?
 
-Defined within your **config/general.php** file, they reference strings which can be different on each of your environments. The most common example is the `{siteUrl}` string.
+Defined within your **config/general.php** file, they reference strings which can be different on each of your environments. The most common example is the `{baseUrl}` string.
 
 [Learn more about environment variables...](http://buildwithcraft.com/docs/multi-environment-configs#environment-specific-variables)
 
@@ -13,7 +13,7 @@ Defined within your **config/general.php** file, they reference strings which ca
 
 Just apply the `envvar` filter to your Twig variable:
 
-    {% set myVar = '{siteUrl}/contact-us' %}
+    {% set myVar = '{baseUrl}/contact-us' %}
     
     {{ myVar | envvar }}
 
