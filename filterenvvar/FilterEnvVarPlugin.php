@@ -1,17 +1,32 @@
 <?php
-
 namespace Craft;
 
 class FilterEnvVarPlugin extends BasePlugin
-{   
+{
+
     public function getName()
     {
         return Craft::t('Filter Environment Variables');
     }
 
+    public function getDescription()
+    {
+        return 'Replace environment variable strings in your Twig variables.';
+    }
+
+    public function getDocumentationUrl()
+    {
+        return 'https://github.com/lindseydiloreto/craft-filterenvvar';
+    }
+
     public function getVersion()
     {
-        return '0.9.9';
+        return '1.0.0';
+    }
+
+    public function getSchemaVersion()
+    {
+        return '1.0.0';
     }
 
     public function getDeveloper()
@@ -21,13 +36,15 @@ class FilterEnvVarPlugin extends BasePlugin
 
     public function getDeveloperUrl()
     {
-        return 'http://doublesecretagency.com';
+        return 'https://github.com/lindseydiloreto/craft-filterenvvar';
+        //return 'http://doublesecretagency.com';
     }
 
     public function addTwigExtension()
     {
         Craft::import('plugins.filterenvvar.twigextensions.FilterEnvVarTwigExtension');
-       
+
         return new FilterEnvVarTwigExtension();
     }
+
 }
