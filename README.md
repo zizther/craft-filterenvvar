@@ -26,3 +26,13 @@ That's it! Any matching environment variables defined in your config file will b
 Within your `config/general.php` file, they are strings which can be defined differently for each of your environments.
 
 Learn more about [environment variables...](http://buildwithcraft.com/docs/multi-environment-configs#environment-specific-variables)
+
+## Update
+
+Now supports globals using the same filter
+
+	{global.slogan}
+	
+The functionality has also been put into the service layer, so it can also be used like
+
+	craft()->filterEnvVar->envvar($text)

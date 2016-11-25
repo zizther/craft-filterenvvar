@@ -20,35 +20,9 @@ class FilterEnvVarTwigExtension extends Twig_Extension
         );
     }
 
-    public $globals = array();
-
-    public function __construct()
+    public function envvar($text)
     {
-        foreach (craft()->globals->allSets as $globalSet)
-        {
-            foreach ($globalSet->content->attributes as $field => $value)
-            {
-                $this->globals[$globalSet->handle.'.'.$field] = $value;
-            }
-        }
+        $filterEnvVar = craft()->filterEnvVar->envvar($text);
+        return $filterEnvVar;
     }
-
-    public function envvar($string)
-    {
-        $string = craft()->config->parseEnvironmentString($string);
-        $string = $this->parseGlobals($string);
-
-        return $string;
-    }
-
-    public function parseGlobals($string)
-    {
-        foreach ($this->globals as $key => $value)
-        {
-            $string = str_replace('{'.$key.'}', $value, $string);
-        }
-
-        return $string;
-    }
-
 }
